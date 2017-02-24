@@ -19,5 +19,8 @@
 	},
 	"loader": {
 		"wait": "Por favor aguarde..."
+	},
+	"cep": {
+		"error": "Ocorreu um erro ao consultar o CEP"
 	}
 }

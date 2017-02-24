@@ -13,7 +13,7 @@
     <ion-list>
       <ion-item>
         <ion-label fixed>CEP</ion-label>
-        <ion-input type="tel" maxlength=8 [(ngModel)]="zipcode" [ngModelOptions]="{standalone: true}" required placeholder="00000000"></ion-input>
+        <ion-input type="tel" pattern=".{8,8}" maxlength="8" [(ngModel)]="zipcode" [ngModelOptions]="{standalone: true}" required placeholder="00000000"></ion-input>
       </ion-item>
       <ion-item text-wrap>{{ 'search.disclaimer' | translate }}</ion-item>
     

@@ -2,6 +2,7 @@
   "name": "cep_promise_app",
   "author": "Christian Benseler",
   "homepage": "http://chrisb.com.br/",
+  "keywords": ["cep", "cep-promise", "ionic", "ionic 2", "angular 2", "javascript"],
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
