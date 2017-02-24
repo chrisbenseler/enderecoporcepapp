@@ -7,7 +7,9 @@
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "ionic:serve": "ionic-app-scripts serve",
+    "lint": "tslint \"src/**/*.ts\"",
+    "test": "ng test"
   },
   "dependencies": {
     "@angular/common": "2.2.1",
@@ -31,6 +33,19 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "1.1.0",
+    "@types/jasmine": "^2.5.43",
+    "@types/node": "^7.0.5",
+    "angular-cli": "^1.0.0-beta.28.3",
+    "codecov": "^1.0.1",
+    "jasmine-core": "^2.5.2",
+    "jasmine-spec-reporter": "^3.2.0",
+    "karma": "^1.5.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-mocha-reporter": "^2.2.2",
+    "karma-remap-istanbul": "^0.6.0",
+    "ts-node": "^2.1.0",
+    "tslint": "^4.4.2",
+    "tslint-eslint-rules": "^3.4.0",
     "typescript": "2.0.9"
   },
   "cordovaPlugins": [
