@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <ion-title>
+      {{ 'history.title' | translate }}
+    </ion-title>
+
+    <button ion-button menuToggle="right" (click)="delete()" end>
+      <ion-icon name='trash'></ion-icon>
+    </button>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <addressdata [data]='address' *ngFor="let address of addresses" ></addressdata>
+</ion-content>

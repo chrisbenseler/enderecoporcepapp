@@ -1,0 +1,23 @@
+{
+	"search": {
+		"title": "Buscar",
+		"zipcode": "CEP",
+		"button": "Procurar",
+		"disclaimer": "Utilize apenas números para informar o CEP, não é necessário usar hífem"
+	},
+	"history": {
+		"title": "Histórico",
+		"button": "Limpar"
+	},
+	"about": {
+		"title": "Sobre"
+	},
+	"result": {
+		"city": "Cidade",
+		"state": "Estado",
+		"zipcode": "CEP"
+	},
+	"loader": {
+		"wait": "Por favor aguarde..."
+	}
+}

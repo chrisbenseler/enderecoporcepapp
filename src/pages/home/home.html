@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <ion-title>
+      <img src="../assets/logo_inv.png" class="logo" />
+      Endereço por CEP
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <form (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>CEP</ion-label>
+        <ion-input type="tel" maxlength=8 [(ngModel)]="zipcode" [ngModelOptions]="{standalone: true}" required placeholder="00000000"></ion-input>
+      </ion-item>
+      <ion-item text-wrap>{{ 'search.disclaimer' | translate }}</ion-item>
+    
+      <ion-item>
+        <button type="submit" ion-button large block>{{ 'search.button' | translate }}</button>
+      </ion-item>
+    </ion-list>
+    
+  </form>
+
+  <addressdata *ngIf="address" [data]='address' ></addressdata>
+    
+</ion-content>

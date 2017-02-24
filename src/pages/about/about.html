@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <ion-title>
+      {{ 'about.title' | translate }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-card>
+		<ion-card-content>
+		O <strong>Endereço por CEP</strong> permite a busca e armazenamento de endereços a partir de um CEP. Usamos a biblioteca
+		<a href="https://github.com/filipedeschamps/cep-promise" target="_system">CEP Promise</a> para fazer as consultas
+		</ion-card-content>
+	</ion-card>
+
+	<ion-card>
+		<ion-card-content>
+			Desenvolvido por <a href="http://chrisb.com.br" target="_system">Christian Benseler</a>
+		</ion-card-content>
+	</ion-card>
+
+	<ion-card>
+		<ion-card-content>
+			Versão: 0.0.{{ versionnumber }}
+		</ion-card-content>
+	</ion-card>
+
+</ion-content>
