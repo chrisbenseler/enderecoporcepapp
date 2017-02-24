@@ -21,7 +21,6 @@ before_script:
 - npm install -g angular-cli@1.0.0-beta.26
 - npm install -g karma@1.4.0
 - npm install
-- ng build
 
 after_script:
 - npm install -g coveralls
