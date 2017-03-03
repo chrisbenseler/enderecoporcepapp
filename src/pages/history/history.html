@@ -13,5 +13,12 @@
 </ion-header>
 
 <ion-content>
-  <addressdata [data]='address' *ngFor="let address of addresses" ></addressdata>
+  <ion-grid>
+  <ion-row>
+  <ion-col col-12 col-lg *ngFor="let address of addresses">
+    <addressdata [data]='address'></addressdata>
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+  
 </ion-content>

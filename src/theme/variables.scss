@@ -74,7 +74,16 @@ $colors: (
 // Fonts
 // --------------------------------------------------
 
-@import "roboto";
+// @import "roboto";
 @import "noto-sans";
 
 @import "global";
+
+@font-face {font-family: "Amiko";
+  src:
+  url("../assets/fonts/amiko/Amiko-Regular.ttf") format("truetype")
+}
+
+* {
+	font-family: "Amiko"
+}
