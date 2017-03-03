@@ -16,9 +16,12 @@ export class AboutPage {
 
   ionViewDidLoad() {
 
+  		console.log(this.appVersion.getVersionNumber())
+
 		if (this.platform.is('cordova')) {
 
 			this.appVersion.getVersionNumber().then( version => {
+				console.log(version)
 				this.versionnumber = version;
 			});
 		}

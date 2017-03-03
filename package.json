@@ -2,7 +2,7 @@
   "name": "cep_promise_app",
   "author": "Christian Benseler",
   "homepage": "http://chrisb.com.br/",
-  "keywords": ["cep", "cep-promise", "ionic", "ionic 2", "angular 2", "javascript"],
+  "keywords": ["cep", "cep-promise", "ionic", "ionic 2", "angular 2", "javascript", "app", "hybrid", "mobile"],
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -57,7 +57,8 @@
     "cordova-plugin-device",
     "cordova-plugin-splashscreen",
     "ionic-plugin-keyboard",
-    "cordova-plugin-statusbar"
+    "cordova-plugin-statusbar",
+    "cordova-plugin-app-version"
   ],
   "cordovaPlatforms": [],
   "description": "Busque endereços a partir de um CEP",

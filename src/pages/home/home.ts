@@ -4,6 +4,7 @@ import { default as cep } from 'cep-promise';
 import { Storage } from '@ionic/storage';
 import { LoadingController, ToastController } from 'ionic-angular';
 import { TranslateService } from "ng2-translate/ng2-translate";
+import { GoogleAnalytics } from 'ionic-native';
 
 @Component({
   selector: 'page-home',

@@ -1,6 +1,8 @@
 #!/bin/bash
 
-ionic build android --release
+rm platforms/android/build/outputs/apk/*
+
+ionic build android --release --prod
 
 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ceppromiseapp.keystore platforms/android/build/outputs/apk/android-release-unsigned.apk ceppromiseapp
 
