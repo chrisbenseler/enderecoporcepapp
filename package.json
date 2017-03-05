@@ -58,7 +58,8 @@
     "cordova-plugin-splashscreen",
     "ionic-plugin-keyboard",
     "cordova-plugin-statusbar",
-    "cordova-plugin-app-version"
+    "cordova-plugin-app-version",
+    "cordova-plugin-googlemaps"
   ],
   "cordovaPlatforms": [],
   "description": "Busque endereços a partir de um CEP"
