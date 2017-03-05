@@ -70,5 +70,9 @@ export class HomePage {
 		})
 		
 	}
+
+	handle_address_click(data) {
+		//alert(data);
+	}
 	
 }

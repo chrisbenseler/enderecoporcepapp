@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 /*
   Generated class for the Address component.
@@ -14,8 +14,14 @@ export class AddressComponent {
 
   @Input() data: any = {};
 
+  @Output() address_click = new EventEmitter();
+
   constructor() {
         
+  }
+
+  click() {
+  	this.address_click.emit(this.data);
   }
 
 }

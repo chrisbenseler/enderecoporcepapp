@@ -24,6 +24,6 @@
     
   </form>
 
-  <addressdata *ngIf="address" [data]='address' ></addressdata>
+  <addressdata *ngIf="address" [data]='address' (address_click)="handle_address_click($event)" ></addressdata>
     
 </ion-content>

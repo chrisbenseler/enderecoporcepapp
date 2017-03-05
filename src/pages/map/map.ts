@@ -43,7 +43,7 @@ export class MapPage {
 
 		// listen to MAP_READY event
 		map.one(GoogleMapsEvent.MAP_READY).then(() => {
-		  console.log('Map is ready!');
+			console.log('Map is ready!');
 
 			// create LatLng object
 			let ionic: GoogleMapsLatLng = new GoogleMapsLatLng(43.0741904,-89.3809802);
@@ -60,15 +60,15 @@ export class MapPage {
 
 			// create new marker
 			let markerOptions: GoogleMapsMarkerOptions = {
-			position: ionic,
-			title: 'Ionic'
+				position: ionic,
+				title: 'Ionic'
 			};
 
 			map.addMarker(markerOptions)
 			.then((marker: GoogleMapsMarker) => {
 				marker.showInfoWindow();
 			});
-		}
-	});
+		})
+	}
 
 }
