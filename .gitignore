@@ -30,6 +30,8 @@ www/
 resources/android/
 $RECYCLE.BIN/
 
+src/app/config.ts
+
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate

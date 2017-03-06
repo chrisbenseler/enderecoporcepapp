@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ViewController, LoadingController } from 'ionic-angular';
 
 import {
- GoogleMap,
- GoogleMapsEvent,
- GoogleMapsLatLng,
- CameraPosition,
- GoogleMapsMarkerOptions,
- GoogleMapsMarker
+	Geocoder,
+	GeocoderRequest,
+	Geolocation
 } from 'ionic-native';
 
 
@@ -23,52 +20,41 @@ import {
 })
 export class MapPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+	lat: number = null;
+  	lng: number = null;
+  	data: any = null;
 
-	ionViewDidLoad() {
-		this.loadMap();
+	constructor(public navCtrl: NavController,
+				public navParams: NavParams,
+				public viewCtrl: ViewController,
+				public loadingCtrl: LoadingController) {
+				
+		this.data = navParams.get('data');
+
+		
 	}
 
-	loadMap() {
-		// make sure to create following structure in your view.html file
-		// and add a height (for example 100%) to it, else the map won't be visible
-		// <ion-content>
-		//  <div #map id="map" style="height:100%;"></div>
-		// </ion-content>
+	ionViewDidEnter() {
+		this.load();
+	}
 
-		// create a new map by passing HTMLElement
-		let element: HTMLElement = document.getElementById('map');
-
-		let map = new GoogleMap(element);
-
-		// listen to MAP_READY event
-		map.one(GoogleMapsEvent.MAP_READY).then(() => {
-			console.log('Map is ready!');
-
-			// create LatLng object
-			let ionic: GoogleMapsLatLng = new GoogleMapsLatLng(43.0741904,-89.3809802);
-
-			// create CameraPosition
-			let position: CameraPosition = {
-				target: ionic,
-				zoom: 18,
-				tilt: 30
-			};
-
-			// move the map's camera to position
-			map.moveCamera(position);
-
-			// create new marker
-			let markerOptions: GoogleMapsMarkerOptions = {
-				position: ionic,
-				title: 'Ionic'
-			};
-
-			map.addMarker(markerOptions)
-			.then((marker: GoogleMapsMarker) => {
-				marker.showInfoWindow();
-			});
+	load() {
+		let loading = this.loadingCtrl.create();
+		loading.present();
+		let req: GeocoderRequest = { address: this.data.cep }
+		Geocoder.geocode( req ).then( results => {
+			this.lat = results[0].position.lat;
+			this.lng = results[0].position.lng;
+			loading.dismiss();
+		})
+		.catch( error => {
+			loading.dismiss();
 		})
 	}
+
+	dismiss() {
+		this.viewCtrl.dismiss();
+	}
+
 
 }

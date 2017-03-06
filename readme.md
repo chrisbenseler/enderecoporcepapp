@@ -10,4 +10,8 @@
 
 # Endereço por CEP APP
 
-Ionic 2 app that allows users to search addresses in Brazil through it's CEP (zipcode), via [CEP Promise](https://github.com/filipedeschamps/cep-promise) library
+Ionic 2 apppara procura de endereço a partir de um CEP, via [CEP Promise](https://github.com/filipedeschamps/cep-promise) library.
+
+## Uso
+
+Clone o projeto, instale as dependências (npm install), crie um arquivo src/app/copnfig.ts usando o config.ts.sample como exemplo. 

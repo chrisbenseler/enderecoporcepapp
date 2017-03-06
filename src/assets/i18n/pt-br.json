@@ -22,5 +22,9 @@
 	},
 	"cep": {
 		"error": "Ocorreu um erro ao consultar o CEP"
+	},
+	"map": {
+		"title": "Mapa",
+		"open": "abrir mapa"
 	}
 }

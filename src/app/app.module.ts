@@ -1,16 +1,24 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { AboutPage } from '../pages/about/about';
-import { HistoryPage } from '../pages/history/history';
-import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { TranslateModule, TranslateStaticLoader } from "ng2-translate/ng2-translate";
 import { TranslateLoader } from "ng2-translate";
 
+import { AboutPage } from '../pages/about/about';
+import { HistoryPage } from '../pages/history/history';
+import { HomePage } from '../pages/home/home';
+import { MapPage } from '../pages/map/map';
+import { TabsPage } from '../pages/tabs/tabs';
+
 import { AddressComponent } from '../components/address/address';
+
+import { AppConfig } from './config';
+
+import {
+  AgmCoreModule
+} from 'angular2-google-maps/core';
 
 export function translateLoaderFactory(http: any) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -23,10 +31,14 @@ export function translateLoaderFactory(http: any) {
     HistoryPage,
     HomePage,
     TabsPage,
+    MapPage,
     AddressComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAnqRK-_rX32G3eS7K1rr0UmiXCO2KXgM4'
+    }),
     TranslateModule.forRoot({
       provide: TranslateLoader,
       useFactory: translateLoaderFactory,
@@ -39,7 +51,8 @@ export function translateLoaderFactory(http: any) {
     AboutPage,
     HistoryPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    MapPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage]
 })

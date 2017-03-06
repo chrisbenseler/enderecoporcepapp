@@ -2,7 +2,7 @@
   "name": "cep_promise_app",
   "author": "Christian Benseler",
   "homepage": "http://chrisb.com.br/",
-  "keywords": "cep",
+  "keywords": ["cep", "cep promise", "ionic", "ionic 2", "angular 2", "google maps", "google maps api"],
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "2.2.1",
     "@angular/platform-server": "2.2.1",
     "@ionic/storage": "^1.1.7",
+    "angular2-google-maps": "^0.16.0",
     "cep-promise": "^2.0.4",
     "ionic-angular": "2.1.0",
     "ionic-native": "2.4.1",
@@ -58,8 +59,7 @@
     "cordova-plugin-splashscreen",
     "ionic-plugin-keyboard",
     "cordova-plugin-statusbar",
-    "cordova-plugin-app-version",
-    "cordova-plugin-googlemaps"
+    "cordova-plugin-app-version"
   ],
   "cordovaPlatforms": [],
   "description": "Busque endereços a partir de um CEP"

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+
+import { MapPage } from '../map/map';
 
 @Component({
   selector: 'page-history',
@@ -10,10 +12,11 @@ export class HistoryPage {
 
 	addresses: Array<any> = [];
 
-  constructor(public navCtrl: NavController,
-  			  public storage: Storage) {
-  	
-  }
+	constructor(public navCtrl: NavController,
+							public modal: ModalController,
+							public storage: Storage) {
+
+	}
 
   ionViewDidEnter() {
   	this.load()
@@ -52,5 +55,10 @@ export class HistoryPage {
 
     
   }
+
+	handle_address_click(data) {
+		let modal = this.modal.create(MapPage, { data });
+		modal.present();
+	}
 
 }

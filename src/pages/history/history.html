@@ -16,7 +16,7 @@
   <ion-grid>
   <ion-row>
   <ion-col col-12 col-lg *ngFor="let address of addresses">
-    <addressdata [data]='address'></addressdata>
+    <addressdata [data]='address' (address_click)="handle_address_click($event)"></addressdata>
   </ion-col>
   </ion-row>
   </ion-grid>

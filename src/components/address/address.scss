@@ -1,3 +1,16 @@
-address {
+addressdata {
+	ion-chip.chip-md {
+		float: right;
+		margin: 0 8px 8px 0;
 
+	}
+	.label-md {
+		margin: 5px 8px 5px 0;
+	}
+	.item-block {
+		min-height: 2rem;
+	}
+	ion-card {
+		overflow: hidden;
+	}
 }

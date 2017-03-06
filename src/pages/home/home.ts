@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import { default as cep } from 'cep-promise';
 import { Storage } from '@ionic/storage';
 import { LoadingController, ToastController } from 'ionic-angular';
 import { TranslateService } from "ng2-translate/ng2-translate";
 import { GoogleAnalytics } from 'ionic-native';
+
+import { MapPage } from '../map/map';
 
 @Component({
   selector: 'page-home',
@@ -18,6 +20,7 @@ export class HomePage {
 
 	constructor(public navCtrl: NavController,
 				public storage: Storage,
+				public modal: ModalController,
 				public translate: TranslateService,
 				public loadingCtrl: LoadingController,
 				private toastCtrl: ToastController) {
@@ -72,7 +75,8 @@ export class HomePage {
 	}
 
 	handle_address_click(data) {
-		//alert(data);
+		let modal = this.modal.create(MapPage, { data });
+		modal.present();
 	}
-	
+
 }
