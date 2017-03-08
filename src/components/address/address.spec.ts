@@ -39,6 +39,10 @@ describe('AddressComponent', () => {
     	expect(fixture.nativeElement.querySelector('ion-card-header').innerText).toBe(addressMock.street)
     })
 
+    it('should emit event when click', () => {
+    	spyOn(instance.address_click, 'emit')
+    	instance.click()
+    	expect(instance.address_click.emit).toHaveBeenCalled()
+    })
 
- 
 })
