@@ -5,7 +5,6 @@ import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { TranslateModule, TranslateStaticLoader } from "ng2-translate/ng2-translate";
 import { TranslateLoader } from "ng2-translate";
-
 import { AboutPage } from '../pages/about/about';
 import { HistoryPage } from '../pages/history/history';
 import { HomePage } from '../pages/home/home';
@@ -37,7 +36,7 @@ export function translateLoaderFactory(http: any) {
   imports: [
     IonicModule.forRoot(MyApp),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAnqRK-_rX32G3eS7K1rr0UmiXCO2KXgM4'
+      apiKey: AppConfig.google_api_key
     }),
     TranslateModule.forRoot({
       provide: TranslateLoader,
