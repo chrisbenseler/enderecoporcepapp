@@ -5,6 +5,8 @@ import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { TranslateModule, TranslateStaticLoader } from "ng2-translate/ng2-translate";
 import { TranslateLoader } from "ng2-translate";
+import { IonicStorageModule } from '@ionic/storage';
+
 import { AboutPage } from '../pages/about/about';
 import { HistoryPage } from '../pages/history/history';
 import { HomePage } from '../pages/home/home';
@@ -43,6 +45,7 @@ export function translateLoaderFactory(http: any) {
       useFactory: translateLoaderFactory,
       deps: [Http]
     }),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -53,6 +56,6 @@ export function translateLoaderFactory(http: any) {
     TabsPage,
     MapPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
