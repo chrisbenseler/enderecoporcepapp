@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { NavController, NavParams, ViewController, LoadingController } from 'ionic-angular';
 
-import { AppConfig } from '../../app/config'
+import { AppConfig } from '../../config';
 
 /*
   Generated class for the Map page.
