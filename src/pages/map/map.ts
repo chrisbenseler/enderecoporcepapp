@@ -39,15 +39,22 @@ export class MapPage {
 	}
 
 	load() {
+
 		let loading = this.loadingCtrl.create();
 		loading.present();
 		let req: GeocoderRequest = { address: this.data.cep }
 		Geocoder.geocode( req ).then( results => {
-			this.lat = results[0].position.lat;
-			this.lng = results[0].position.lng;
+			if(results.length > 0) {
+				this.lat = results[0].position.lat;
+				this.lng = results[0].position.lng;
+			}// else {
+				//this.lat = -20;
+				//this.lng = -5;
+			//}
 			loading.dismiss();
 		})
 		.catch( error => {
+			console.error('Map is not available: ', error);
 			loading.dismiss();
 		})
 	}
