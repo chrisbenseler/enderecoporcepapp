@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
+import { Http } from '@angular/http';
 import { NavController, NavParams, ViewController, LoadingController } from 'ionic-angular';
 
-import {
-	Geocoder,
-	GeocoderRequest,
-	Geolocation
-} from 'ionic-native';
-
+import { AppConfig } from '../../app/config'
 
 /*
   Generated class for the Map page.
@@ -27,34 +23,26 @@ export class MapPage {
 	constructor(public navCtrl: NavController,
 				public navParams: NavParams,
 				public viewCtrl: ViewController,
+				public http: Http,
 				public loadingCtrl: LoadingController) {
-				
-		this.data = navParams.get('data');
-
 		
+		this.data = navParams.get('data');
+		this.load();		
 	}
 
-	ionViewDidEnter() {
-		this.load();
-	}
 
 	load() {
 
 		let loading = this.loadingCtrl.create();
 		loading.present();
-		let req: GeocoderRequest = { address: this.data.cep }
-		Geocoder.geocode( req ).then( results => {
-			if(results.length > 0) {
-				this.lat = results[0].position.lat;
-				this.lng = results[0].position.lng;
-			}// else {
-				//this.lat = -20;
-				//this.lng = -5;
-			//}
-			loading.dismiss();
-		})
-		.catch( error => {
-			console.error('Map is not available: ', error);
+		
+		this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.data.cep}&key=${AppConfig.google_api_key}`)
+		.subscribe( data => {
+			let response = data.json();
+			if(response.status == 'OK' && response.results.length > 0) {
+				this.lat = response.results[0].geometry.location.lat;
+				this.lng = response.results[0].geometry.location.lng;
+			}
 			loading.dismiss();
 		})
 	}

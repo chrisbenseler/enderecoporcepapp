@@ -21,7 +21,7 @@
 		</ion-card-content>
 	</ion-card>
 
-	<ion-card>
+	<ion-card *ngIf="!platform.is('core')">
 		<ion-card-content>
 			Versão: {{ versionnumber }}
 		</ion-card-content>

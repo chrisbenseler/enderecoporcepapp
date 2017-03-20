@@ -15,6 +15,3 @@ Ionic 2 apppara procura de endereço a partir de um CEP, via [CEP Promise](https
 ## Uso
 
 Clone o projeto, instale as dependências (npm install), crie um arquivo src/app/copnfig.ts usando o config.ts.sample como exemplo. 
-
-###
-ionic plugin add cordova-plugin-googlemaps@1.3.9 --variable API_KEY_FOR_ANDROID='AIzaSyAnqRK-_rX32G3eS7K1rr0UmiXCO2KXgM4'
