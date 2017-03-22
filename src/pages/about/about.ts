@@ -14,14 +14,14 @@ export class AboutPage {
 	constructor(public platform: Platform, private appVersion: AppVersion) {
 	}
 
-  ionViewDidLoad() {
-
-		if (this.platform.is('core')) {
-
+	ionViewDidLoad() {
+		if (!this.platform.is('core')) {
 			this.appVersion.getVersionNumber().then( version => {
 				this.versionnumber = version;
 			})
-			.catch( error => {})
+			.catch( error => {
+				console.error(error);
+			})
 		}
 	}
 
