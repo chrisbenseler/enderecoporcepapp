@@ -4,9 +4,12 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+
 import { TranslateModule } from 'ng2-translate'
 import { MockBackend } from '@angular/http/testing';
-import { XHRBackend } from '@angular/http'
+import { XHRBackend } from '@angular/http';
  
 let comp: MyApp;
 let fixture: ComponentFixture<MyApp>;
@@ -20,7 +23,9 @@ describe('Component: Root Component', () => {
             declarations: [MyApp],
  
             providers: [
-              { provide: XHRBackend, useClass: MockBackend }
+              { provide: XHRBackend, useClass: MockBackend },
+              StatusBar,
+              SplashScreen
             ],
  
             imports: [
