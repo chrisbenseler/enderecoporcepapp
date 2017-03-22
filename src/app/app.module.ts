@@ -7,6 +7,10 @@ import { TranslateModule, TranslateStaticLoader } from "ng2-translate/ng2-transl
 import { TranslateLoader } from "ng2-translate";
 import { IonicStorageModule } from '@ionic/storage';
 
+import { AppVersion } from '@ionic-native/app-version';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+
 import { AboutPage } from '../pages/about/about';
 import { HistoryPage } from '../pages/history/history';
 import { HomePage } from '../pages/home/home';
@@ -66,6 +70,6 @@ export function translateLoaderFactory(http: any) {
     TabsPage,
     MapPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AppVersion, StatusBar, SplashScreen]
 })
 export class AppModule {}
