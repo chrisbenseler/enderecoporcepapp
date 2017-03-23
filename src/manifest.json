@@ -1,6 +1,6 @@
 {
   "name": "Endereço por CEP",
-  "short_name": "cep_promise_app",
+  "short_name": "Endereço por CEP",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
@@ -8,6 +8,6 @@
     "sizes": "144x144",
     "type": "image/png"
   }],
-  "background_color": "#FFCF56",
+  "background_color": "#FFFFFF",
   "theme_color": "#FFCF56"
 }

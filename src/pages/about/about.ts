@@ -9,9 +9,11 @@ import { Platform } from 'ionic-angular';
 export class AboutPage {
 
 	public versionnumber: any = 1;
-	//public appVersion: any = AppVersion;
 
-	constructor(public platform: Platform, private appVersion: AppVersion) {
+	constructor(
+		public platform: Platform,
+		private appVersion: AppVersion
+		) {
 	}
 
 	ionViewDidLoad() {

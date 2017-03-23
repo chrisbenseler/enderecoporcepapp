@@ -1,3 +1,4 @@
+
 <ion-header>
   <ion-navbar color='primary'>
     <ion-title>
@@ -6,6 +7,7 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
+
 
 <ion-content>
 	<ion-card>
@@ -20,6 +22,7 @@
 			Desenvolvido por <a href="http://chrisb.com.br" target="_system">Christian Benseler</a>
 		</ion-card-content>
 	</ion-card>
+	
 	<ion-card *ngIf="!platform.is('core')">
 		<ion-card-content>
 			Versão: {{ versionnumber }}

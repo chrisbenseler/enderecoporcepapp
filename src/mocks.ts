@@ -65,3 +65,14 @@ export class MenuMock {
 export let addressMock = {
 	street: "Avenida Paulista"
 }
+
+export class AppVersionMock {
+
+  version = 20;
+
+  public getVersionNumber() {
+    return new Promise( (resolve, reject) => {
+      resolve(this.version)
+    });
+  }
+}

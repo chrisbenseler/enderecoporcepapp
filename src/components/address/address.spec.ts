@@ -1,6 +1,7 @@
 import { ComponentFixture, async, TestBed, } from '@angular/core/testing'
 import { NavController } from 'ionic-angular/'
 import { TestUtils } from '../../test'
+import { Platform } from 'ionic-angular';
 
 import { AddressComponent } from './address'
 import { addressMock } from '../../mocks'
@@ -10,6 +11,14 @@ let fixture: ComponentFixture<AddressComponent> = null;
 let instance: any = null;
 
 describe('AddressComponent', () => {
+
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			providers: [
+			Platform
+			]
+		})
+	}))
 
 
 	beforeEach(async(() => TestUtils.beforeEachCompiler([AddressComponent]).then(compiled => {

@@ -57,7 +57,7 @@ export class TestUtils {
         ...components,
       ],
       providers: [
-        App, Form, Keyboard, DomController, MenuController, NavController, Platform, GestureController,
+        App, Form, Keyboard, DomController, MenuController, NavController, GestureController,
         {provide: Config, useClass: ConfigMock},
       ],
       imports: [
