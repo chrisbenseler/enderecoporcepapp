@@ -127,7 +127,7 @@ export class AppVersionMock {
 
   version = 20;
 
-  public getVersionNumber() {
+  getVersionNumber(): any {
     return new Promise( (resolve, reject) => {
       resolve(this.version)
     });

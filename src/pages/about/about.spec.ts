@@ -9,7 +9,7 @@ import { TranslateModule } from 'ng2-translate'
 import { MockBackend } from '@angular/http/testing';
 import { XHRBackend } from '@angular/http';
 
-import { ConfigMock, NavMock, PlatformMock } from '../../mocks';
+import { ConfigMock, NavMock, PlatformMock, AppVersionMock } from '../../mocks';
  
 let instance: AboutPage = null;
 let fixture: ComponentFixture<AboutPage> = null;
@@ -21,7 +21,7 @@ describe('Component: AboutPage Component', () => {
         TestBed.configureTestingModule({
  			declarations: [ AboutPage ],
             providers: [
-              AppVersion,
+              { provide: AppVersion, useClass: AppVersionMock }
               { provide: Platform, useClass: PlatformMock }
             ]
  
@@ -44,6 +44,45 @@ describe('Component: AboutPage Component', () => {
         expect(instance).toBeTruthy();
  
     });
+
+	it('should have proper version', (done) => {
+
+		instance.platform.is = () => false;
+
+		spyOn(instance.appVersion, 'getVersionNumber').and.callThrough();
+
+		instance.ionViewDidLoad();
+
+		expect(instance.appVersion.getVersionNumber).toHaveBeenCalled();
+
+		setTimeout( () => {
+			expect(instance.versionnumber).toBe(20);
+			done();
+		});
+
+	});
+
+	it('should handle error', (done) => {
+
+		instance.platform.is = () => false;
+
+		instance.appVersion.getVersionNumber = () => {
+			return new Promise( ( resolve, reject) => {
+				reject(new Error())
+			})
+		}
+
+		setTimeout( () => {
+
+			let x = instance.ionViewDidLoad();
+			x.catch(e => {
+				expect(e instanceof Error).toBeTruthy();
+				done();	
+			})
+			
+		});
+
+	});
  
  
 });

@@ -18,13 +18,9 @@ export class AboutPage {
 
 	
 	ionViewDidLoad() {
-		
 		if (!this.platform.is('core')) {
-			this.appVersion.getVersionNumber().then( version => {
+			return this.appVersion.getVersionNumber().then( version => {
 				this.versionnumber = version;
-			})
-			.catch( error => {
-				console.error(error);
 			})
 		}
 		
