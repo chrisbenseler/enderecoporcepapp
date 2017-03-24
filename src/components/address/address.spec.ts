@@ -12,6 +12,7 @@ let instance: any = null;
 
 describe('AddressComponent', () => {
 
+	
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			providers: [

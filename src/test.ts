@@ -11,9 +11,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { getTestBed, TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 import { App, Config, Form, IonicModule, Keyboard, DomController, MenuController, NavController, Platform, GestureController } from 'ionic-angular';
-import { ConfigMock } from './mocks';
+import { ConfigMock, NavMock } from './mocks';
 import { TranslateModule } from 'ng2-translate/ng2-translate';
- 
+import { AppVersion } from '@ionic-native/app-version';
+
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
 declare var __karma__: any;
 declare var require: any;
@@ -57,8 +58,7 @@ export class TestUtils {
         ...components,
       ],
       providers: [
-        App, Form, Keyboard, DomController, MenuController, NavController, GestureController,
-        {provide: Config, useClass: ConfigMock},
+        App, Form, DomController, MenuController, GestureController, NavController, Config, Keyboard
       ],
       imports: [
         FormsModule,

@@ -12,11 +12,13 @@ export class AboutPage {
 
 	constructor(
 		public platform: Platform,
-		private appVersion: AppVersion
+		public appVersion: AppVersion
 		) {
 	}
 
+	
 	ionViewDidLoad() {
+		
 		if (!this.platform.is('core')) {
 			this.appVersion.getVersionNumber().then( version => {
 				this.versionnumber = version;
@@ -25,6 +27,8 @@ export class AboutPage {
 				console.error(error);
 			})
 		}
+		
 	}
+	
 
 }
