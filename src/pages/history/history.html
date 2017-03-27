@@ -5,10 +5,11 @@
       {{ 'history.title' | translate }}
     </ion-title>
 
-    <button ion-button menuToggle="right" (click)="delete()" end>
-      <ion-icon name='trash'></ion-icon>
-    </button>
-
+    <ion-buttons end>
+      <button ion-button (click)="delete()">
+        <ion-icon name='trash'></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 

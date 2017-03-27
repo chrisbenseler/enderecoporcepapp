@@ -52,8 +52,6 @@ export class HistoryPage {
   		}
   	})
   	.then( () => this.load() )
-
-    
   }
 
 	handle_address_click(data) {
