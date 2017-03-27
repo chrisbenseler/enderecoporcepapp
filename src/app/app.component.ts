@@ -14,16 +14,22 @@ import { TabsPage } from '../pages/tabs/tabs';
 export class MyApp {
   rootPage = TabsPage;
 
-  constructor(platform: Platform, translate: TranslateService, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(private platform: Platform,
+              private translate: TranslateService,
+              private statusBar: StatusBar,
+              private splashScreen: SplashScreen) {
 
     translate.setDefaultLang('pt-br');
     translate.use('pt-br');
 
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
-    });
+
+    platform.ready().then(() => this.ready() );
+  }
+
+  // Okay, so the platform is ready and our plugins are available.
+  // Here you can do any higher level native things you might need.
+  ready() {
+    this.statusBar.styleDefault();
+    this.splashScreen.hide();
   }
 }
