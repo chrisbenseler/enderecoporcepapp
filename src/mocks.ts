@@ -12,6 +12,21 @@ export class ConfigMock {
     return 1;
   }
 }
+
+export class ModalControllerMock {
+ 
+  public create(): any {
+    return {
+      present: function() { }
+    }
+  }
+
+  public present(): any {
+    return new Promise(function(resolve: Function): void {
+       resolve()
+    });
+  }
+}
  
 export class FormMock {
   public register(): any {
@@ -21,12 +36,21 @@ export class FormMock {
 
 export class StorageMock {
 
+  public _data = {};
+
   public get(type): any {
     return new Promise(function(resolve: Function): void {
       if(type == 'ceps')
-        resolve({ keys: ['00000000', '00000001'] })
-       if(type == '00000000')
-         resolve('{}')
+        resolve({ keys: ["04477100"] })
+       if(type == '04477100') {
+         resolve('{"cep":"04477100","state":"SP","city":"São Paulo","neighborhood":"Eldorado","street":"Rua Padre Ramon Ortiz"}')
+       }
+    });
+  }
+
+  public remove(key): any {
+    return new Promise(function(resolve: Function): void {
+       resolve()
     });
   }
 

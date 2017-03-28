@@ -11,7 +11,7 @@ import { TranslateModule } from 'ng2-translate'
 import { MockBackend } from '@angular/http/testing';
 import { XHRBackend } from '@angular/http';
 
-import { StorageMock, PlatformMock } from '../../mocks';
+import { StorageMock, PlatformMock, ModalControllerMock } from '../../mocks';
 
 import { AddressComponent } from '../../components/address/address';
  
@@ -26,7 +26,7 @@ describe('Component: HistoryPage Component', () => {
  			declarations: [ HistoryPage, AddressComponent ],
             providers: [
               NavController,
-              ModalController,
+              { provide: ModalController, useClass: ModalControllerMock },
               { provide: Storage, useClass: StorageMock },
               { provide: Platform, useClass: PlatformMock }
             ]
@@ -52,12 +52,37 @@ describe('Component: HistoryPage Component', () => {
     });
 
 
-	it('should load data', () => {
+	it('should load history', (done) => {
 		spyOn(instance, 'load').and.callThrough();
 		spyOn(instance.storage, 'get').and.callThrough();
 		instance.ionViewDidEnter();
-		expect(instance.load).toHaveBeenCalled();
-		expect(instance.storage.get).toHaveBeenCalledWith('ceps');
+	
+		setTimeout( () => {
+			expect(instance.load).toHaveBeenCalled();
+			expect(instance.storage.get).toHaveBeenCalledWith('ceps');
+			done();
+		})
+	})
+
+	it('should delete history', (done) => {
+		spyOn(instance, 'load').and.callThrough();
+		spyOn(instance.storage, 'get').and.callThrough();
+		spyOn(instance.storage, 'remove').and.callThrough();
+		instance.delete();
+	
+		setTimeout( () => {
+			expect(instance.load).toHaveBeenCalled();
+			expect(instance.storage.get).toHaveBeenCalledWith('ceps');
+			expect(instance.storage.remove).toHaveBeenCalledWith('04477100');
+			done();
+		})
+	})
+
+	it('should handle address click', () => {
+		spyOn(instance.modal, 'create').and.callThrough();
+		instance.handle_address_click();
+		expect(instance.modal.create).toHaveBeenCalled();
+
 	})
 
 

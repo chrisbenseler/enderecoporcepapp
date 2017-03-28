@@ -33,8 +33,6 @@ export class HistoryPage {
 			Promise.all(promises).then(data => {
 				this.addresses = data;
 			})
-		} else {
-			this.addresses = []
 		}
   	})
   }
