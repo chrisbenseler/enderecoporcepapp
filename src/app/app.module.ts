@@ -2,10 +2,9 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { Http } from '@angular/http';
-import { Storage } from '@ionic/storage';
+import { Storage, IonicStorageModule } from '@ionic/storage';
 import { TranslateModule, TranslateStaticLoader } from "ng2-translate/ng2-translate";
 import { TranslateLoader } from "ng2-translate";
-import { IonicStorageModule } from '@ionic/storage';
 
 import { AppVersion } from '@ionic-native/app-version';
 import { StatusBar } from '@ionic-native/status-bar';

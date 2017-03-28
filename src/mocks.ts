@@ -18,6 +18,19 @@ export class FormMock {
     return true;
   }
 }
+
+export class StorageMock {
+
+  public get(type): any {
+    return new Promise(function(resolve: Function): void {
+      if(type == 'ceps')
+        resolve({ keys: ['00000000', '00000001'] })
+       if(type == '00000000')
+         resolve('{}')
+    });
+  }
+
+}
  
 export class NavMock {
  
