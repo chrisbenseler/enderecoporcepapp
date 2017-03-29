@@ -83,9 +83,6 @@ describe('Component: HistoryPage Component', () => {
 		instance.handle_address_click();
 		expect(instance.modal.create).toHaveBeenCalled();
 
-	})
-
-
- 
+	}) 
  
 });

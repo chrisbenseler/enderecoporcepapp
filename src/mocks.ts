@@ -55,6 +55,12 @@ export class StorageMock {
   }
 
 }
+
+export class DeepLinkerMock {
+  initNav() { }
+
+  createUrl() {}
+}
  
 export class NavMock {
  
@@ -81,6 +87,22 @@ export class NavMock {
   public setRoot(): any {
     return true;
   }
+
+  public registerChildNav(): any {
+    return new Promise(function(resolve: Function): void {
+      resolve();
+    });   }
+
+  public unregisterChildNav(): any {
+    return new Promise(function(resolve: Function): void {
+      resolve();
+    });   }
+
+  public popToRoot(): any {
+    return true;   }
+
+  public canGoBack(): any {
+    return true;   }
 }
  
 export class PlatformMock {

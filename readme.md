@@ -16,3 +16,6 @@ Ionic 2 app para procura de endereço a partir de um CEP, via [CEP Promise](http
 
 Clone o projeto, instale as dependências (npm install), crie um arquivo src/app/copnfig.ts usando o config.ts.sample como exemplo. 
 Você vai precisar de uma Google API Key para o uso do Google Maps.
+
+### PWA
+É possível acessar a app como [PWA](http://enderecoporcep.chrisb.com.br/)
