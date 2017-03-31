@@ -9,7 +9,7 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { TranslateModule } from 'ng2-translate'
+import { TranslateModule } from '@ngx-translate/core';
 import { MockBackend } from '@angular/http/testing';
 import { XHRBackend } from '@angular/http';
 
