@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 import { MapPage } from '../map/map';
@@ -12,9 +12,8 @@ export class HistoryPage {
 
 	addresses: Array<any> = [];
 
-	constructor(public navCtrl: NavController,
-							public modal: ModalController,
-							public storage: Storage) {
+	constructor(public modal: ModalController,
+				public storage: Storage) {
 
 	}
 

@@ -5,7 +5,6 @@ import { TestUtils } from '../../test'
 
 import { AppVersion } from '@ionic-native/app-version';
 
-import { TranslateModule } from 'ng2-translate'
 import { MockBackend } from '@angular/http/testing';
 import { XHRBackend } from '@angular/http';
 
@@ -21,7 +20,7 @@ describe('Component: AboutPage Component', () => {
         TestBed.configureTestingModule({
  			declarations: [ AboutPage ],
             providers: [
-              { provide: AppVersion, useClass: AppVersionMock }
+              { provide: AppVersion, useClass: AppVersionMock },
               { provide: Platform, useClass: PlatformMock }
             ]
  

@@ -1,4 +1,4 @@
-import './polyfills.ts';
+//import './polyfills.ts';
  
 import 'zone.js/dist/long-stack-trace-zone';
 import 'zone.js/dist/proxy.js';
@@ -10,7 +10,7 @@ import 'zone.js/dist/fake-async-test';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { getTestBed, TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
-import { App, Config, Form, IonicModule, Keyboard, DomController, MenuController, NavController, Platform, GestureController } from 'ionic-angular';
+import { App, Config, Form, IonicModule, Keyboard, DomController, MenuController, Platform, GestureController } from 'ionic-angular';
 import { ConfigMock, NavMock } from './mocks';
 import { TranslateModule } from '@ngx-translate/core';
 import { AppVersion } from '@ionic-native/app-version';
@@ -58,7 +58,7 @@ export class TestUtils {
         ...components,
       ],
       providers: [
-        App, Form, DomController, MenuController, GestureController, NavController, Config, Keyboard
+        App, Form, DomController, MenuController, GestureController, Config, Keyboard
       ],
       imports: [
         FormsModule,

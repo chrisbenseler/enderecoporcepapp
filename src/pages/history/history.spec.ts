@@ -1,13 +1,10 @@
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
-import { IonicModule, Platform } from 'ionic-angular';
+import { IonicModule, Platform, ModalController } from 'ionic-angular';
 import { HistoryPage } from './history';
 import { TestUtils } from '../../test'
 
-import { NavController, ModalController, Platform } from 'ionic-angular';
-
 import { Storage } from '@ionic/storage';
 
-import { TranslateModule } from 'ng2-translate'
 import { MockBackend } from '@angular/http/testing';
 import { XHRBackend } from '@angular/http';
 
@@ -25,7 +22,6 @@ describe('Component: HistoryPage Component', () => {
         TestBed.configureTestingModule({
  			declarations: [ HistoryPage, AddressComponent ],
             providers: [
-              NavController,
               { provide: ModalController, useClass: ModalControllerMock },
               { provide: Storage, useClass: StorageMock },
               { provide: Platform, useClass: PlatformMock }
@@ -80,7 +76,7 @@ describe('Component: HistoryPage Component', () => {
 
 	it('should handle address click', () => {
 		spyOn(instance.modal, 'create').and.callThrough();
-		instance.handle_address_click();
+		instance.handle_address_click({});
 		expect(instance.modal.create).toHaveBeenCalled();
 
 	}) 

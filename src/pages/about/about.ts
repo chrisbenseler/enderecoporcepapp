@@ -14,6 +14,7 @@ export class AboutPage {
 		public platform: Platform,
 		public appVersion: AppVersion
 		) {
+
 	}
 
 	

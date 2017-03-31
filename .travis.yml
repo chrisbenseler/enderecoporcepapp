@@ -19,7 +19,7 @@ before_install:
 
 before_script:
 - cp src/app/config.ts.sample src/app/config.ts
-- npm install -g angular-cli@1.0.0-beta.26
+- npm install -g @angular/cli
 - npm install -g karma@1.4.0
 - npm install
 

@@ -1,5 +1,5 @@
 import { ComponentFixture, async, TestBed, } from '@angular/core/testing'
-import { NavController } from 'ionic-angular/'
+//import { NavController } from 'ionic-angular/'
 import { TestUtils } from '../../test'
 import { Platform } from 'ionic-angular';
 
@@ -16,7 +16,7 @@ describe('AddressComponent', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			providers: [
-			Platform
+				Platform
 			]
 		})
 	}))

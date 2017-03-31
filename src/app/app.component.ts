@@ -14,10 +14,10 @@ import { TabsPage } from '../pages/tabs/tabs';
 export class MyApp {
   rootPage = TabsPage;
 
-  constructor(private platform: Platform,
-              private translate: TranslateService,
-              private statusBar: StatusBar,
-              private splashScreen: SplashScreen) {
+  constructor(public platform: Platform,
+              public translate: TranslateService,
+              public statusBar: StatusBar,
+              public splashScreen: SplashScreen) {
 
     translate.setDefaultLang('pt-br');
     translate.use('pt-br');
