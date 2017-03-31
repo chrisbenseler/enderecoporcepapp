@@ -3,7 +3,7 @@ import { NavController, ModalController } from 'ionic-angular';
 import { default as cep } from 'cep-promise';
 import { Storage } from '@ionic/storage';
 import { LoadingController, ToastController } from 'ionic-angular';
-import { TranslateService } from "ng2-translate/ng2-translate";
+import { TranslateService } from '@ngx-translate/core';
 
 import { MapPage } from '../map/map';
 

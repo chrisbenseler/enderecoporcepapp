@@ -1,10 +1,11 @@
 import { NgModule, ErrorHandler } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { Http } from '@angular/http';
+import { Http, HttpModule } from '@angular/http';
 import { Storage, IonicStorageModule } from '@ionic/storage';
-import { TranslateModule, TranslateStaticLoader } from "ng2-translate/ng2-translate";
-import { TranslateLoader } from "ng2-translate";
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppVersion } from '@ionic-native/app-version';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -25,7 +26,7 @@ import {
 } from 'angular2-google-maps/core';
 
 export function translateLoaderFactory(http: any) {
-  return new TranslateStaticLoader(http, './assets/i18n', '.json');
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -39,23 +40,27 @@ export function translateLoaderFactory(http: any) {
     AddressComponent
   ],
   imports: [
+    BrowserModule,
     IonicModule.forRoot(MyApp, {},
-      {
+      //{
       //links: [
         //{ component: AboutPage, name: '', segment: '' },
         //{ component: HistoryPage, name: '', segment: '' },
         //{ component: HomePage, name: '', segment: '' },
       //]
 
-    }
+    //}
     ),
+    HttpModule, 
     AgmCoreModule.forRoot({
       apiKey: AppConfig.google_api_key
     }),
     TranslateModule.forRoot({
-      provide: TranslateLoader,
-      useFactory: translateLoaderFactory,
-      deps: [Http]
+      loader: {
+        provide: TranslateLoader,
+        useFactory:  (translateLoaderFactory),
+        deps: [Http]
+      }
     }),
     IonicStorageModule.forRoot()
     
