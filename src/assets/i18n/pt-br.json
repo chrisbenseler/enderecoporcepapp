@@ -7,7 +7,9 @@
 	},
 	"history": {
 		"title": "Histórico",
-		"button": "Limpar"
+		"button": "Limpar",
+		"alerttitle": "Limpar histórico",
+		"alertdescription": "Deseja realmente limpar o histórico? Essa operação não pode ser desfeita"
 	},
 	"about": {
 		"title": "Sobre"
@@ -26,5 +28,9 @@
 	"map": {
 		"title": "Mapa",
 		"open": "abrir mapa"
+	},
+	"alert": {
+		"cancel": "Cancelar",
+		"confirm": "Confirmar"
 	}
 }

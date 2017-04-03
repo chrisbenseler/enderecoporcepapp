@@ -1,5 +1,5 @@
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
-import { IonicModule, Platform, ModalController } from 'ionic-angular';
+import { IonicModule, Platform, ModalController, AlertController } from 'ionic-angular';
 import { HistoryPage } from './history';
 import { TestUtils } from '../../test'
 
@@ -8,7 +8,7 @@ import { Storage } from '@ionic/storage';
 import { MockBackend } from '@angular/http/testing';
 import { XHRBackend } from '@angular/http';
 
-import { StorageMock, PlatformMock, ModalControllerMock } from '../../mocks';
+import { StorageMock, PlatformMock, ModalControllerMock, AlertControllerMock } from '../../mocks';
 
 import { AddressComponent } from '../../components/address/address';
  
@@ -23,6 +23,7 @@ describe('Component: HistoryPage Component', () => {
  			declarations: [ HistoryPage, AddressComponent ],
             providers: [
               { provide: ModalController, useClass: ModalControllerMock },
+              { provide: AlertController, useClass: AlertControllerMock },
               { provide: Storage, useClass: StorageMock },
               { provide: Platform, useClass: PlatformMock }
             ]
@@ -61,15 +62,14 @@ describe('Component: HistoryPage Component', () => {
 	})
 
 	it('should delete history', (done) => {
-		spyOn(instance, 'load').and.callThrough();
 		spyOn(instance.storage, 'get').and.callThrough();
 		spyOn(instance.storage, 'remove').and.callThrough();
 		instance.delete();
 	
 		setTimeout( () => {
-			expect(instance.load).toHaveBeenCalled();
 			expect(instance.storage.get).toHaveBeenCalledWith('ceps');
 			expect(instance.storage.remove).toHaveBeenCalledWith('04477100');
+			expect(instance.addresses.length).toBe(0);
 			done();
 		})
 	})
@@ -78,6 +78,12 @@ describe('Component: HistoryPage Component', () => {
 		spyOn(instance.modal, 'create').and.callThrough();
 		instance.handle_address_click({});
 		expect(instance.modal.create).toHaveBeenCalled();
+	});
+
+	it('should handle delete click', () => {
+		spyOn(instance.alertCtrl, 'create').and.callThrough();
+		instance.handle_delete_click();
+		expect(instance.alertCtrl.create).toHaveBeenCalled();
 
 	}) 
  

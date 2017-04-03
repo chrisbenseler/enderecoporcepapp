@@ -27,6 +27,21 @@ export class ModalControllerMock {
     });
   }
 }
+
+export class AlertControllerMock {
+ 
+  public create(): any {
+    return {
+      present: function() { }
+    }
+  }
+
+  public present(): any {
+    return new Promise(function(resolve: Function): void {
+       resolve()
+    });
+  }
+}
  
 export class FormMock {
   public register(): any {
