@@ -1,12 +1,10 @@
-//import './polyfills.ts';
- 
 import 'zone.js/dist/long-stack-trace-zone';
 import 'zone.js/dist/proxy.js';
 import 'zone.js/dist/sync-test';
 import 'zone.js/dist/jasmine-patch';
 import 'zone.js/dist/async-test';
 import 'zone.js/dist/fake-async-test';
- 
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { getTestBed, TestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
@@ -18,24 +16,24 @@ import { AppVersion } from '@ionic-native/app-version';
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
 declare var __karma__: any;
 declare var require: any;
- 
+
 // Prevent Karma from running prematurely.
 __karma__.loaded = function (): void {
   // noop
 };
- 
+
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting(),
 );
- 
+
 // Then we find all the tests.
-let context: any = require.context('./', true, /\.spec\.ts/);
- 
+const context: any = require.context('./', true, /\.spec\.ts/);
+
 // And load the modules.
 context.keys().map(context);
- 
+
 // Finally, start Karma to run the tests.
 __karma__.start();
 
@@ -44,7 +42,7 @@ export class TestUtils {
   public static beforeEachCompiler(components: Array<any>): Promise<{fixture: any, instance: any}> {
     return TestUtils.configureIonicTestingModule(components)
       .compileComponents().then(() => {
-        let fixture: any = TestBed.createComponent(components[0]);
+        const fixture: any = TestBed.createComponent(components[0]);
         return {
           fixture: fixture,
           instance: fixture.debugElement.componentInstance,
@@ -74,7 +72,7 @@ export class TestUtils {
     if (el.fireEvent) {
       el.fireEvent('on' + etype);
     } else {
-      let evObj: any = document.createEvent('Events');
+      const evObj: any = document.createEvent('Events');
       evObj.initEvent(etype, true, false);
       el.dispatchEvent(evObj);
     }

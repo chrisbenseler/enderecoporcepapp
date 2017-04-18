@@ -1,53 +1,53 @@
 export class ConfigMock {
- 
+
   public get(): any {
     return '';
   }
- 
+
   public getBoolean(): boolean {
     return true;
   }
- 
+
   public getNumber(): number {
     return 1;
   }
-}
+};
 
 export class ModalControllerMock {
- 
+
   public create(): any {
     return {
       present: function() { }
-    }
+    };
   }
 
   public present(): any {
     return new Promise(function(resolve: Function): void {
-       resolve()
+       resolve();
     });
   }
-}
+};
 
 export class AlertControllerMock {
- 
+
   public create(): any {
     return {
       present: function() { }
-    }
+    };
   }
 
   public present(): any {
     return new Promise(function(resolve: Function): void {
-       resolve()
+       resolve();
     });
   }
-}
- 
+};
+
 export class FormMock {
   public register(): any {
     return true;
   }
-}
+};
 
 export class StorageMock {
 
@@ -55,50 +55,48 @@ export class StorageMock {
 
   public get(type): any {
     return new Promise(function(resolve: Function): void {
-      if(type == 'ceps')
-        resolve({ keys: ["04477100"] })
-       if(type == '04477100') {
-         resolve('{"cep":"04477100","state":"SP","city":"São Paulo","neighborhood":"Eldorado","street":"Rua Padre Ramon Ortiz"}')
-       }
+      if (type === 'ceps') {
+        resolve({ keys: ['04477100'] });
+      }
+      if (type === '04477100') {
+        resolve('{"cep":"04477100","state":"SP","city":"São Paulo","neighborhood":"Eldorado","street":"Rua Padre Ramon Ortiz"}');
+      }
     });
   }
 
   public remove(key): any {
     return new Promise(function(resolve: Function): void {
-       resolve()
+       resolve();
     });
   }
-
-}
+};
 
 export class DeepLinkerMock {
   initNav() { }
-
   createUrl() {}
-}
- 
+};
+
 export class NavMock {
- 
   public pop(): any {
     return new Promise(function(resolve: Function): void {
       resolve();
     });
   }
- 
+
   public push(): any {
     return new Promise(function(resolve: Function): void {
       resolve();
     });
   }
- 
+
   public getActive(): any {
     return {
       'instance': {
-        'model': 'something',
-      },
+        'model': 'something'
+      }
     };
   }
- 
+
   public setRoot(): any {
     return true;
   }
@@ -106,21 +104,27 @@ export class NavMock {
   public registerChildNav(): any {
     return new Promise(function(resolve: Function): void {
       resolve();
-    });   }
+    });
+  }
 
   public unregisterChildNav(): any {
     return new Promise(function(resolve: Function): void {
       resolve();
-    });   }
+    });
+  }
 
   public popToRoot(): any {
-    return true;   }
+    return true;
+  }
 
   public canGoBack(): any {
-    return true;   }
-}
- 
+    return true;
+  }
+
+};
+
 export class PlatformMock {
+
   public ready(): Promise<{String}> {
     return new Promise((resolve) => {
       resolve('READY');
@@ -183,19 +187,19 @@ export class PlatformMock {
   getQueryParam(key: string): any {
     return key;
   }
-}
- 
+};
+
 export class MenuMock {
   public close(): any {
     return new Promise((resolve: Function) => {
       resolve();
     });
   }
-}
+};
 
 export let addressMock = {
-	street: "Avenida Paulista"
-}
+   street: 'Avenida Paulista'
+};
 
 export class AppVersionMock {
 
@@ -203,7 +207,7 @@ export class AppVersionMock {
 
   getVersionNumber(): any {
     return new Promise( (resolve, reject) => {
-      resolve(this.version)
+      resolve(this.version);
     });
   }
-}
+};
