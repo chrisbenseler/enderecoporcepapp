@@ -42,4 +42,22 @@ describe('Component: HomePage Component', () => {
       expect(instance).toBeTruthy();
   });
 
+  it('should handle address click', () => {
+    spyOn(instance.modal, 'create').and.callThrough();
+    instance.handle_address_click({});
+    expect(instance.modal.create).toHaveBeenCalled();
+  });
+
+  it('should handle add address click', () => {
+    spyOn(instance.storage, 'set').and.callThrough();
+    instance.add_address_storage({});
+    expect(instance.storage.set).toHaveBeenCalled();
+  });
+
+  it('should handle add address to storage', () => {
+    spyOn(instance.storage, 'get').and.callThrough();
+    instance.add_key_storage({});
+    expect(instance.storage.get).toHaveBeenCalledWith('ceps');
+  });
+
 });

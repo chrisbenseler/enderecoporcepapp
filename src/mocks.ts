@@ -75,6 +75,12 @@ export class StorageMock {
        resolve();
     });
   }
+
+  public set(key, value) {
+    return new Promise(function(resolve: Function): void {
+       resolve();
+    });
+  }
 };
 
 export class DeepLinkerMock {
