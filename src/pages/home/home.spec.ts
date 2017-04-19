@@ -1,0 +1,45 @@
+import { TestBed, ComponentFixture, async } from '@angular/core/testing';
+import { IonicModule, Platform, ModalController, NavController, LoadingController, ToastController } from 'ionic-angular';
+import { HomePage } from './home';
+import { TestUtils } from '../../test';
+
+import { Storage } from '@ionic/storage';
+
+import { MockBackend } from '@angular/http/testing';
+import { XHRBackend } from '@angular/http';
+
+import { StorageMock, PlatformMock, ModalControllerMock, NavMock } from '../../mocks';
+
+import { AddressComponent } from '../../components/address/address';
+
+let instance: HomePage = null;
+let fixture: ComponentFixture<HomePage> = null;
+
+describe('Component: HomePage Component', () => {
+
+  beforeEach(async(() => {
+
+    TestBed.configureTestingModule({
+      declarations: [ HomePage, AddressComponent ],
+            providers: [
+              { provide: ModalController, useClass: ModalControllerMock },
+              { provide: Storage, useClass: StorageMock },
+              { provide: NavController, useClass: NavMock },
+              { provide: Platform, useClass: PlatformMock },
+              LoadingController, ToastController
+            ]
+    });
+  }));
+
+  beforeEach(async(() => TestUtils.beforeEachCompiler([HomePage]).then(compiled => {
+    fixture = compiled.fixture;
+    instance = compiled.instance;
+    fixture.autoDetectChanges(true);
+  })));
+
+  it('is created', () => {
+      expect(fixture).toBeTruthy();
+      expect(instance).toBeTruthy();
+  });
+
+});
