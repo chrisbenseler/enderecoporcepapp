@@ -52,6 +52,7 @@ export class HistoryPage {
       ]
     });
     alert.present();
+    return alert;
   }
 
   delete() {

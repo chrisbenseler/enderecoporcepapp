@@ -29,10 +29,15 @@ export class ModalControllerMock {
 };
 
 export class AlertControllerMock {
-
   public create(): any {
     return {
-      present: function() { }
+      present: function() { },
+      data: {
+        buttons: [
+          null,
+          { handler: function() {} }
+        ]
+      }
     };
   }
 
@@ -41,6 +46,7 @@ export class AlertControllerMock {
        resolve();
     });
   }
+
 };
 
 export class FormMock {

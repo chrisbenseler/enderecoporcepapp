@@ -72,7 +72,7 @@ describe('Component: HistoryPage Component', () => {
 
   it('should handle delete click', () => {
     spyOn(instance.alertCtrl, 'create').and.callThrough();
-    instance.handle_delete_click();
+    const alert = instance.handle_delete_click();
     expect(instance.alertCtrl.create).toHaveBeenCalled();
   });
 
