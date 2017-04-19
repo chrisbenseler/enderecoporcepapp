@@ -10,9 +10,7 @@ export class AddressComponent {
 
   @Output() address_click = new EventEmitter();
 
-  constructor() {
-        
-  }
+  constructor() { }
 
   click() {
     this.address_click.emit(this.data);

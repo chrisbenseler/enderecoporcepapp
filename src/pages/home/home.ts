@@ -13,69 +13,66 @@ import { MapPage } from '../map/map';
 })
 export class HomePage {
 
-	zipcode:string;
-	address:any = null;
-	cep:any = cep;
+  zipcode: string;
+  address: any = null;
+  cep: any = cep;
 
-	constructor(public navCtrl: NavController,
-				public storage: Storage,
-				public modal: ModalController,
-				public translate: TranslateService,
-				public loadingCtrl: LoadingController,
-				private toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController,
+        public storage: Storage,
+        public modal: ModalController,
+        public translate: TranslateService,
+        public loadingCtrl: LoadingController,
+        private toastCtrl: ToastController) {
 
-	}
+  }
 
-	onSubmit() {
-		this.address = null;
+  onSubmit() {
+    this.address = null;
 
-		let loader = this.loadingCtrl.create({
-			content: this.translate.instant('loader.wait')
-		});
-		loader.present();
-		
-		this.cep(this.zipcode).then( data => {
-			loader.dismiss();
-			this.address = data;
-	  		return data;
-		})
-		.then( this.add_address_storage.bind(this) )
-		.then( this.add_key_storage.bind(this) )
-		.catch( err => {
-			loader.dismiss();
+    const loader = this.loadingCtrl.create({
+      content: this.translate.instant('loader.wait')
+    });
+    loader.present();
+    this.cep(this.zipcode).then( data => {
+      loader.dismiss();
+      this.address = data;
+      return data;
+    })
+    .then( this.add_address_storage.bind(this) )
+    .then( this.add_key_storage.bind(this) )
+    .catch( err => {
+      loader.dismiss();
 
-			let toast = this.toastCtrl.create({
-				message: this.translate.instant('cep.error'),
-				duration: 2000
-			});
-			toast.present();
-		})
-	}
+      const toast = this.toastCtrl.create({
+        message: this.translate.instant('cep.error'),
+        duration: 2000
+      });
+      toast.present();
+    });
+  }
 
-	add_address_storage(address) {
-		this.storage.set(address.cep, JSON.stringify(address));
-		return address;
-	}
+  add_address_storage(address) {
+    this.storage.set(address.cep, JSON.stringify(address));
+    return address;
+  }
 
-	
-	add_key_storage(address) {
-		this.storage.get('ceps')
-		.then( ceps => {
-			if(!ceps)
-				ceps = {}
-			
-			ceps['keys'] = ceps['keys'] || []
-			if(ceps['keys'].indexOf(address.cep) < 0) {
-				ceps['keys'].push(address.cep)
-				this.storage.set('ceps', ceps)
-			}
-		})
-		
-	}
+  add_key_storage(address) {
+    this.storage.get('ceps')
+    .then( ceps => {
+      ceps = ceps || {};
 
-	handle_address_click(data) {
-		let modal = this.modal.create(MapPage, { data });
-		modal.present();
-	}
+      ceps['keys'] = ceps['keys'] || [];
+      if (ceps['keys'].indexOf(address.cep) < 0) {
+        ceps['keys'].push(address.cep);
+        this.storage.set('ceps', ceps);
+      }
+    });
+
+  }
+
+  handle_address_click(data) {
+    const modal = this.modal.create(MapPage, { data });
+    modal.present();
+  }
 
 }

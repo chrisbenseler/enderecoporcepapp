@@ -8,24 +8,20 @@ import { Platform } from 'ionic-angular';
 })
 export class AboutPage {
 
-	public versionnumber: any = 1;
+  public versionnumber: any = 1;
 
-	constructor(
-		public platform: Platform,
-		public appVersion: AppVersion
-		) {
+  constructor(
+   public platform: Platform,
+   public appVersion: AppVersion
+   ) {
+  }
 
-	}
-
-	
-	ionViewDidLoad() {
-		if (!this.platform.is('core')) {
-			return this.appVersion.getVersionNumber().then( version => {
-				this.versionnumber = version;
-			})
-		}
-		
-	}
-	
+  ionViewDidLoad() {
+   if (!this.platform.is('core')) {
+     return this.appVersion.getVersionNumber().then( version => {
+       this.versionnumber = version;
+     });
+   }
+  }
 
 }

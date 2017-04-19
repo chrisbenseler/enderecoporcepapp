@@ -11,71 +11,69 @@ import { MapPage } from '../map/map';
 })
 export class HistoryPage {
 
-	addresses: Array<any> = [];
+  addresses: Array<any> = [];
 
-	constructor(public modal: ModalController,
-				public alertCtrl: AlertController,
-				public translate: TranslateService,
-				public storage: Storage) {
+  constructor(public modal: ModalController,
+        public alertCtrl: AlertController,
+        public translate: TranslateService,
+        public storage: Storage) {
 
-	}
+  }
 
-	ionViewDidEnter() {
-		this.load()
-	}
+  ionViewDidEnter() {
+    this.load();
+  }
 
-	load() {
+  load() {
 
-		this.storage.get('ceps')
-		.then( ceps => {
-		if(ceps) {
-			let promises = ceps['keys'].map( 
-				cep => this.storage.get(cep).then( address => JSON.parse(address) )
-			)
-			Promise.all(promises).then(data => {
-				this.addresses = data;
-			})
-		}
-		})
-	}
+    this.storage.get('ceps')
+    .then( ceps => {
+      if (ceps) {
+        const promises = ceps['keys'].map(
+          cep => this.storage.get(cep).then( address => JSON.parse(address) )
+        );
+        Promise.all(promises).then(data => {
+          this.addresses = data;
+        });
+      }
+    });
+  }
 
-	handle_delete_click() {
+  handle_delete_click() {
 
-		let alert = this.alertCtrl.create({
-			title: this.translate.instant('history.alerttitle'),
-			subTitle: this.translate.instant('history.alertdescription'),
-			buttons: [
-				{ text: this.translate.instant('alert.cancel'), role: 'cancel', },
-				{ text: this.translate.instant('alert.confirm'), handler: () => {
-					this.delete();
-				}}
-			]
-		});
-		alert.present();
+    const alert = this.alertCtrl.create({
+      title: this.translate.instant('history.alerttitle'),
+      subTitle: this.translate.instant('history.alertdescription'),
+      buttons: [
+        { text: this.translate.instant('alert.cancel'), role: 'cancel', },
+        { text: this.translate.instant('alert.confirm'), handler: () => {
+          this.delete();
+        }}
+      ]
+    });
+    alert.present();
+  }
 
-		
-	}
+  delete() {
+    this.storage.get('ceps')
+    .then( ceps => {
+      if (ceps) {
+        const promises = ceps['keys'].map( cep => {
+          return this.storage.remove(cep);
+        });
+        return Promise.all(promises).then(data => {
+          return this.storage.remove('ceps');
+        });
+      }
+    })
+    .then( () => {
+      this.addresses = [];
+    });
+  }
 
-	delete() {
-		this.storage.get('ceps')
-		.then( ceps => {
-			if(ceps) {
-			let promises = ceps['keys'].map( cep => {
-				return this.storage.remove(cep)
-			})
-			return Promise.all(promises).then(data => {
-				return this.storage.remove('ceps')
-			})
-			}
-		})
-		.then( () => {
-			this.addresses = [];
-		})
-	}
-
-	handle_address_click(data) {
-		let modal = this.modal.create(MapPage, { data });
-		modal.present();
-	}
+  handle_address_click(data) {
+    const modal = this.modal.create(MapPage, { data });
+    modal.present();
+  }
 
 }
