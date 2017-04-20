@@ -51,7 +51,8 @@
     },
     "codeCoverage": {
       "exclude": [
-        "src/mocks.ts"
+        "src/mocks.ts",
+        "src/pages/tabs/tabs.ts"
       ]
     }
   },
