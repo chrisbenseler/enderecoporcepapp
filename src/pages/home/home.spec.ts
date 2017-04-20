@@ -69,6 +69,6 @@ describe('Component: HomePage Component', () => {
     };
     instance.onSubmit();
     expect(instance.address).toBe(null);
-  })
+  });
 
 });
