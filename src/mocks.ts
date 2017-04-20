@@ -14,7 +14,6 @@ export class ConfigMock {
 };
 
 export class ModalControllerMock {
-
   public create(): any {
     return {
       present: function() { }
@@ -27,6 +26,26 @@ export class ModalControllerMock {
     });
   }
 };
+
+export class LoadingControllerMock {
+  public create(): any {
+    return {
+      present: function() { }
+    };
+  }
+
+  public present(): any {
+    return new Promise(function(resolve: Function): void {
+       resolve();
+    });
+  }
+
+  public dismiss(): any {
+    return new Promise(function(resolve: Function): void {
+       resolve();
+    });
+  }
+}
 
 export class AlertControllerMock {
   public create(): any {

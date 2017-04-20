@@ -8,7 +8,7 @@ import { Storage } from '@ionic/storage';
 import { MockBackend } from '@angular/http/testing';
 import { XHRBackend } from '@angular/http';
 
-import { StorageMock, PlatformMock, ModalControllerMock, NavMock } from '../../mocks';
+import { StorageMock, PlatformMock, ModalControllerMock, NavMock, LoadingControllerMock, addressMock } from '../../mocks';
 
 import { AddressComponent } from '../../components/address/address';
 
@@ -26,7 +26,8 @@ describe('Component: HomePage Component', () => {
               { provide: Storage, useClass: StorageMock },
               { provide: NavController, useClass: NavMock },
               { provide: Platform, useClass: PlatformMock },
-              LoadingController, ToastController
+              { provide: LoadingController, useClass: LoadingControllerMock },
+              ToastController
             ]
     });
   }));
@@ -59,5 +60,15 @@ describe('Component: HomePage Component', () => {
     instance.add_key_storage({});
     expect(instance.storage.get).toHaveBeenCalledWith('ceps');
   });
+
+  it('should handle submit', () => {
+    instance.cep = function() {
+      return new Promise(function(resolve: Function): void {
+       resolve(addressMock);
+      });
+    };
+    instance.onSubmit();
+    expect(instance.address).toBe(null);
+  })
 
 });
