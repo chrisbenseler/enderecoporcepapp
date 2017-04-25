@@ -30,21 +30,19 @@ export class ModalControllerMock {
 export class LoadingControllerMock {
   public create(): any {
     return {
-      present: function() { }
+      present(): any {
+        return new Promise(function(resolve: Function): void {
+           resolve();
+        });
+      },
+      dismiss(): any {
+        return new Promise(function(resolve: Function): void {
+           resolve();
+        });
+      }
     };
   }
 
-  public present(): any {
-    return new Promise(function(resolve: Function): void {
-       resolve();
-    });
-  }
-
-  public dismiss(): any {
-    return new Promise(function(resolve: Function): void {
-       resolve();
-    });
-  }
 }
 
 export class AlertControllerMock {

@@ -38,11 +38,10 @@ export class HomePage {
       this.address = data;
       return data;
     })
-    .then( this.add_address_storage.bind(this) )
-    .then( this.add_key_storage.bind(this) )
+    .then( address => this.add_address_storage(address) )
+    .then( address => this.add_key_storage(address) )
     .catch( err => {
       loader.dismiss();
-
       const toast = this.toastCtrl.create({
         message: this.translate.instant('cep.error'),
         duration: 2000

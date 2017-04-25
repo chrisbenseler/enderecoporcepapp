@@ -27,7 +27,7 @@ describe('Component: HomePage Component', () => {
               { provide: NavController, useClass: NavMock },
               { provide: Platform, useClass: PlatformMock },
               { provide: LoadingController, useClass: LoadingControllerMock },
-              ToastController
+              { provide: ToastController, useClass: LoadingControllerMock }
             ]
     });
   }));
@@ -36,6 +36,7 @@ describe('Component: HomePage Component', () => {
     fixture = compiled.fixture;
     instance = compiled.instance;
     fixture.autoDetectChanges(true);
+    instance.cep = function() {};
   })));
 
   it('is created', () => {
@@ -62,11 +63,10 @@ describe('Component: HomePage Component', () => {
   });
 
   it('should handle submit', () => {
-    instance.cep = function() {
-      return new Promise(function(resolve: Function): void {
-       resolve(addressMock);
-      });
-    };
+    const q = new Promise( (resolve, reject) => {
+      resolve(addressMock);
+    });
+    spyOn(instance, 'cep').and.returnValue(q);
     instance.onSubmit();
     expect(instance.address).toBe(null);
   });
