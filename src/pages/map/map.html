@@ -10,23 +10,23 @@
 	</ion-navbar>
 </ion-header>
 <ion-content  no-bounce>
-	<sebm-google-map
+	<agm-map
 	  *ngIf="lat && lng"
       [latitude]="lat"
       [longitude]="lng"
       [zoom]="12"
       [disableDefaultUI]="false"
       [zoomControl]="true">
-		<sebm-google-map-marker
+		<agm-marker
 			[latitude]="lat"
 			[longitude]="lng">
-		<sebm-google-map-info-window
+		<agm-info-window
 			[isOpen]="true"
 			[latitude]="lat"
 			[longitude]="lng"
 		>
 			<strong>{{ data.street }} </strong><br />{{ data.city }}/{{ data.state }} - CEP {{ data.cep }}
-		</sebm-google-map-info-window>
-		</sebm-google-map-marker>
-   	</sebm-google-map> 
+		</agm-info-window>
+		</ agm-marker>
+   	</agm-map> 
 </ion-content>

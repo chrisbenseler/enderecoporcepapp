@@ -23,7 +23,7 @@ import { AppConfig } from './config';
 
 import {
   AgmCoreModule
-} from 'angular2-google-maps/core';
+} from '@agm/core';
 
 export function translateLoaderFactory(http: any) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
