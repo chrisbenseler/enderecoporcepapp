@@ -5,7 +5,7 @@
       {{ 'history.title' | translate }}
     </ion-title>
 
-    <ion-buttons end>
+    <ion-buttons end [hidden]="addresses.length == 0">
       <button ion-button (click)="handle_delete_click()">
         <ion-icon name='trash'></ion-icon>
       </button>
@@ -21,5 +21,8 @@
     </ion-col>
     </ion-row>
   </ion-grid>
-    
+  <ion-item *ngIf="addresses.length == 0">
+    <ion-icon name="rainy"></ion-icon>
+    {{ 'history.noresults' | translate }}
+  </ion-item>    
 </ion-content>

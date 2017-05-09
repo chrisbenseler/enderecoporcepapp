@@ -9,7 +9,8 @@
 		"title": "Histórico",
 		"button": "Limpar",
 		"alerttitle": "Limpar histórico",
-		"alertdescription": "Deseja realmente limpar o histórico? Essa operação não pode ser desfeita"
+		"alertdescription": "Deseja realmente limpar o histórico? Essa operação não pode ser desfeita",
+		"noresults": "Nenhum endereço salvo no histórico"
 	},
 	"about": {
 		"title": "Sobre"
