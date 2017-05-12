@@ -20,7 +20,7 @@ before_install:
 before_script:
 - cp src/app/config.ts.sample src/app/config.ts
 - npm install -g @angular/cli
-- npm install -g karma@1.6.0
+- npm install -g karma@1.7.0
 - npm install
 
 after_script:
