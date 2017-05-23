@@ -9,5 +9,11 @@
     "type": "image/png"
   }],
   "background_color": "#FFFFFF",
-  "theme_color": "#FFCF56"
+  "theme_color": "#FFCF56",
+  "related_applications": [{
+    "platform": "web"
+  }, {
+    "platform": "play",
+    "url": "https://play.google.com/store/apps/details?id=br.com.chrisb.ceppromiseapp"
+  }]
 }
