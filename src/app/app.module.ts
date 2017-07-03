@@ -42,16 +42,15 @@ export function translateLoaderFactory(http: any) {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp, {},
-      //{
-      //links: [
-        //{ component: AboutPage, name: '', segment: '' },
-        //{ component: HistoryPage, name: '', segment: '' },
-        //{ component: HomePage, name: '', segment: '' },
-      //]
-
-    //}
+      // {
+      // links: [
+        // { component: AboutPage, name: '', segment: '' },
+        // { component: HistoryPage, name: '', segment: '' },
+        // { component: HomePage, name: '', segment: '' },
+      // ]
+    // }
     ),
-    HttpModule, 
+    HttpModule,
     AgmCoreModule.forRoot({
       apiKey: AppConfig.google_api_key
     }),
@@ -63,7 +62,7 @@ export function translateLoaderFactory(http: any) {
       }
     }),
     IonicStorageModule.forRoot()
-    
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
