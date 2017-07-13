@@ -16,14 +16,14 @@
         <ion-input type="tel" pattern=".{8,8}" maxlength="8" [(ngModel)]="zipcode" [ngModelOptions]="{standalone: true}" required placeholder="00000000"></ion-input>
       </ion-item>
       <ion-item text-wrap>{{ 'search.disclaimer' | translate }}</ion-item>
-    
+
       <ion-item>
         <button type="submit" ion-button large block>{{ 'search.button' | translate }}</button>
       </ion-item>
     </ion-list>
-    
+
   </form>
 
   <addressdata *ngIf="address" [data]='address' (address_click)="handle_address_click($event)"></addressdata>
-    
+
 </ion-content>
